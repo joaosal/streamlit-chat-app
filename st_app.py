@@ -92,6 +92,7 @@ async def launch_bot():
             st.session_state.status = st.status('Processing...', expanded=False)
             res = st.session_state.agent.chat(st.session_state.prompt)
             #res = escape_dollars_outside_latex(res)
+            res = str(res)
             message = {"role": "assistant", "content": res, "avatar": '🤖'}
             st.session_state.messages.append(message)
             st.markdown(res)
